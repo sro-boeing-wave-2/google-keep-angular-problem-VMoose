@@ -1,0 +1,42 @@
+<mat-toolbar color="primary"> GOOGLE KEEP
+</mat-toolbar>
+<mat-card [formGroup]="dialogForm" (ngSubmit)="onSubmit()">
+  <section class = "fixInputRow">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Text</mat-label>
+      <input matInput placeholder="Text" formControlName="text">
+    </mat-form-field>
+    <mat-slide-toggle
+      class="pinned" formControlName="pinned">
+      Pinned!
+    </mat-slide-toggle>
+    <section class="buttons">
+      <button mat-stroked-button color="primary" type="submit" (click)="Post()">Save</button>
+    </section>
+  </section>
+</mat-card>
+<mat-card class = "newdata" *ngFor= "let note of Notes;let i = index">
+<section>
+  {{title}}
+  <button class="mat-icon-button" (click) = "remove(note)">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <button class="mat-icon-button" (click) = "edit(note)">
+    <mat-icon>edit</mat-icon>
+  </button> <br><br>
+</section>
+<section>
+  title: <input [disabled]="isDisabled || i!=noteId" value="{{note.title}}"> <br><br>
+</section>
+<section>
+  text: <input [disabled]="isDisabled || i!=noteId" value="{{note.text}}"> <br><br>
+</section>
+<section>
+  pin: <input [disabled]="isDisabled || i!=noteId" value="{{note.pinned}}"><br><br>
+</section>
+<button class="EditButton" *ngIf="!isDisabled && i==noteId" mat-stroked-button color="primary" type="submit" (click)="Save()">Save</button>
+</mat-card>

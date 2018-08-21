@@ -1,0 +1,38 @@
+mat-card , .fixInputRow{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  width: 40%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.buttons {
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+.newdata{
+  width: 20%;
+}
+
+.mat-icon-button {
+  margin-top: 0;
+  float: right;
+}
+
+input:disabled
+{
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.EditButton {
+  width: 50%;
+  align-self: flex-end;
+}
